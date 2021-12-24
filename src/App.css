@@ -3,6 +3,7 @@
 .App {
   font-family: 'Raleway', sans-serif;
 }
+
 /**************LOGIN PAGE STYLING*****************************************/
 .login {
   background-image: linear-gradient(
@@ -45,53 +46,77 @@
 
 /*********************NAVBAR STYLING******************************************/
 .navbar {
-  background-color: #c89d7c;
-}
-
-.sidenav {
-  height: 100%;
-  width: 0;
   position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1;
-  top: 0;
-  left: 0;
+  padding: 5px;
+}
+
+.nav-scroll {
   background-color: #c89d7c;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+  transition: all ease-in-out 0.8s;
 }
 
-.sidenav h4 {
-  padding: 8px 8px 8px 32px;
+.navbar-bottom {
+  display: none;
+}
+  
+
+.navbar .navbar-left .nav-links .navbar-links {
+  color: whitesmoke;
   text-decoration: none;
-  font-size: 22px;
-  color: whitesmoke;
-  display: block;
-  transition: 0.3s;
-  cursor: pointer;
+  padding: 0px 35px;
+  font-size: 14px;
 }
 
-.sidenav h4:hover {
-  color: gray;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  padding-top: 15px;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  color: whitesmoke;
-  cursor: pointer;
+.navbar .navbar-left .nav-links .navbar-links:hover {
+  color: #777777;
 }
 /*********************NAVBAR STYLING******************************************/
+
+/*********************FRONTIMAGE STYLING******************************************/
+  .front-image {
+    background-image: linear-gradient(
+      rgba(0,0,0,0.48),
+      rgba(0,0,0,0.48)
+    ), url('../public/img/bible-two.jpg');
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .front-image .front-image-inner .front-image-inner-header > h2 {
+    font-size: 42px;
+    font-weight: 800;
+  } 
+  
+  .front-image .front-image-inner .front-image-inner-text > h6 {
+    font-size: 14px;
+    padding: 8px;
+  }
+/*********************END OF FRONTIMAGE STYLING******************************************/
+
+
+
+
+
+
 
 
 
 
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
+  .navbar {
+    display: none;
+  }
+
   .carousel-inner .texts{
     margin-top: 90%;
   }
@@ -112,6 +137,20 @@
   .login > .sign-in {
     margin-top: 3%;
   }
+
+  .navbar-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #c89d7c;
+    padding: 4px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .navbar-bottom .MuiSvgIcon-root {
+    color: whitesmoke;
+  } 
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -130,6 +169,10 @@
 
   .login > .sign-in > .sign-in-btn {
     font-size: 12px;
+  }
+
+  .navbar .navbar-left .nav-links .navbar-links {
+    padding: 0px 25px;
   }
 }
 
