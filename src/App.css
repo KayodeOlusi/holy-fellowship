@@ -104,6 +104,24 @@
 /*********************END OF FRONTIMAGE STYLING******************************************/
 
 
+/*********************BOTTOMPAGE STYLING******************************************/
+
+.bottom-page {
+  padding: 66px;
+}
+
+.bottom-page .bottom-page-image{
+  height: 250px;
+  object-fit: contain;
+}
+
+.bottom-page .bottom-page-text h5 {
+  font-size: 14px;
+  padding: 8px;
+}
+
+/*********************END OF BOTTOMPAGE STYLING******************************************/
+
 
 
 
