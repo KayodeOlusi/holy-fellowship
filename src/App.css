@@ -72,6 +72,7 @@
 
 .navbar .navbar-left .nav-links .navbar-links:hover {
   color: #777777;
+  transition: ease-in-out 0.3s;
 }
 /*********************NAVBAR STYLING******************************************/
 

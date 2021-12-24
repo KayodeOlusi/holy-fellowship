@@ -11,7 +11,7 @@ const BotomNav = () => {
                 <Button> <BookIcon /> </Button>
                 <Button> <MessageIcon /> </Button>
                 <Button> <AccountCircleIcon /> </Button>
-            </div>
+        </div>
      );
 }
  
