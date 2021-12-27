@@ -113,6 +113,18 @@
 .bottom-page .bottom-page-image{
   height: 250px;
   object-fit: contain;
+  border-radius: 5px;
+}
+
+.bottom-page .bottom-page-text h2 {
+  padding: 8px;
+  font-size: 23px;
+  color: #c89d7c;
+}
+
+.bottom-page .bottom-page-text hr {
+  width: 100px;
+  margin: 0 auto;
 }
 
 .bottom-page .bottom-page-text h5 {
@@ -169,7 +181,19 @@
 
   .navbar-bottom .MuiSvgIcon-root {
     color: whitesmoke;
-  } 
+  }
+
+  .bottom-page .bottom-page-image {
+    display: none;
+  }
+
+  .bottom-page .bottom-page-text h2 {
+    font-size: 20px;
+  }
+
+  .bottom-page .bottom-page-text h5 {
+    font-size: 13px;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -211,6 +235,10 @@
 
   .login > .sign-in > .sign-in-btn {
     font-size: 12px;
+  }
+
+  .bottom-page .bottom-page-image {
+    width: 400px;
   }
 }
 
