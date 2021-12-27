@@ -134,6 +134,43 @@
 
 /*********************END OF BOTTOMPAGE STYLING******************************************/
 
+/*********************FOOTER STYLING******************************************/
+
+.newsletter .newsletter-content {
+  padding: 26px;
+}
+
+.footer {
+  background-color: #554616;
+  margin-bottom: 14px;
+}
+
+.newsletter .newsletter-content h2 {
+  color: whitesmoke;
+  font-size: 26px;
+}
+
+.newsletter .newsletter-content h4 {
+  color: whitesmoke;
+  font-size: 12px;
+}
+
+.newsletter .newsletter-content input {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.newsletter .newsletter-content input:focus {
+  outline: none;
+}
+
+.newsletter .newsletter-content button {
+  background-color: #777777;
+  color: whitesmoke;
+  padding: 5px;
+}
+/*********************END OF FOOTER STYLING******************************************/
 
 
 
@@ -194,6 +231,15 @@
   .bottom-page .bottom-page-text h5 {
     font-size: 13px;
   }
+
+  .newsletter .newsletter-content button {
+    background-color: #554616;
+  }
+
+  .newsletter .newsletter-content input {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -239,6 +285,10 @@
 
   .bottom-page .bottom-page-image {
     width: 400px;
+  }
+
+  .newsletter .newsletter-content button {
+    background-color: #554616;
   }
 }
 
