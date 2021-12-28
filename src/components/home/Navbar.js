@@ -35,7 +35,7 @@ const Navbar = () => {
                     <div className="nav-links d-flex justify-content-space-between align-items-center container">
                         <Link to= "/" className = "navbar-links"> Home </Link>
                         <Link to= "/" className = "navbar-links"> Bible </Link>
-                        <Link to= "/" className = "navbar-links"> Sessions </Link>
+                        <Link to= "/sessions" className = "navbar-links"> Sessions </Link>
                         <Link to= "/" className = "navbar-links"> Contact </Link>
                     </div>
                 </div>

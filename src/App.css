@@ -172,6 +172,44 @@
 }
 /*********************END OF FOOTER STYLING******************************************/
 
+/*********************SESSIONS STYLING******************************************/
+
+.sessions {
+  display: flex;
+  height: 100vh;
+}
+
+.sessions-sidebar {
+  flex: 0.3;
+  background-color: #c89d7c;
+  max-width: 100px;
+  overflow-y: scroll;
+  padding: 8px;
+}
+
+.sessions-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sessions-sidebar h2 {
+  color: whitesmoke;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.sessions-sidebar .avatar {
+  margin: 0 auto;
+}
+
+.sessions-sidebar .MuiSvgIcon-root {
+  margin: 5px 0px;
+  padding: 1px 2px;
+  color: whitesmoke;
+  border-radius: 999px;
+}
+
+/*********************END OF SESSIONS STYLING******************************************/
+
 
 
 
@@ -240,6 +278,11 @@
     padding: 5px 8px;
     font-size: 13px;
   }
+
+  .sessions-sidebar {
+    flex: 0.2;
+    max-width: 80px;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -262,6 +305,11 @@
 
   .navbar .navbar-left .nav-links .navbar-links {
     padding: 0px 25px;
+  }
+
+  .sessions-sidebar {
+    flex: 0.2;
+    max-width: 80px;
   }
 }
 
