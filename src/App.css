@@ -187,6 +187,59 @@
   padding: 8px;
 }
 
+.channels {
+  flex: 0.3;
+  max-width: 280px;
+  overflow-y: scroll;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+.channels::-webkit-scrollbar {
+  display: none;
+}
+
+.channels .channels-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+
+.channels .channels-header h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #c89d7c;
+}
+.channels .channels-header .MuiSvgIcon-root {
+  color: whitesmoke;
+}
+
+.channels .channels-content hr {
+  width: 16px;
+  height: 3px;
+  border-radius: 5px;
+}
+
+.channels .channels-name .channels-name-content {
+  padding: 6px;
+  background-color: whitesmoke;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.channels .channels-name .channels-name-content h6 {
+  font-weight: 900;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.channels .channels-content h6 {
+  font-size: 13px;
+  font-weight: 900;
+  color: #554616; 
+}
+
 .sessions-sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -206,6 +259,26 @@
   padding: 1px 2px;
   color: whitesmoke;
   border-radius: 999px;
+}
+
+.chat {
+  background-image: linear-gradient(
+      rgba(0,0,0,0.48),
+      rgba(0,0,0,0.48)
+    ), url('../public/img/bible-one.jpg');
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    flex: 0.8;  
+}
+
+.chat .chat-header .chat-header-content {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
 }
 
 /*********************END OF SESSIONS STYLING******************************************/
