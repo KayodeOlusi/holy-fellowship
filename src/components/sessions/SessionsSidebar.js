@@ -15,7 +15,7 @@ const SessionsSidebar = () => {
             <hr />
             <SessionSidebarOptions Icon = { ExpandLess } title = "Show Less" />
             <hr />
-            <SessionSidebarOptions Icon = { Add } title = "Add Channel" />
+            <SessionSidebarOptions Icon = { Add } title = "Add Channel" addOption />
             <hr />
         </div>
      );

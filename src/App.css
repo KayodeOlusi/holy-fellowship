@@ -262,13 +262,7 @@
 }
 
 .chat {
-  background-image: linear-gradient(
-      rgba(0,0,0,0.48),
-      rgba(0,0,0,0.48)
-    ), url('../public/img/bible-one.jpg');
-    background-position: center center; 
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #d4d4d4;
     height: 100vh;
     position: relative;
     flex: 0.8;  
@@ -279,7 +273,11 @@
   padding: 10px;
   border-radius: 5px;
   background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 /*********************END OF SESSIONS STYLING******************************************/
 
