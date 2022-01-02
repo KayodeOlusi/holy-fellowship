@@ -17,9 +17,18 @@ const Chat = () => {
         <div className="chat">
             <div className="chat-header">
                 <div className="chat-header-content">
-                    <h6>{  }</h6>
-                    <StarBorderOutlined />
-                </div>
+                    { channelDetails ? 
+                        <>
+                            <h6 style = {{ fontWeight: "900", fontSize: "14px", padding: "5px"}}>
+                                { channelDetails?.data().name }
+                            </h6>
+                            <StarBorderOutlined />  
+                        </> :
+                        <>
+                            <h6 style = {{ fontWeight: "900", fontSize: "14px", padding: "5px" }}>Pick a channel</h6>    
+                        </>
+                    }                
+                    </div>
             </div>
         </div>
      );

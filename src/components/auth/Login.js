@@ -1,6 +1,15 @@
 import GoogleIcon from '@mui/icons-material/Google';
+import { signInWithPopup } from "@firebase/auth";
+import { auth, provider } from "../../firebase"
 
 const Login = () => {
+
+    const signIn = (e) => {
+        e.preventDefault();
+        signInWithPopup(auth, provider)
+        .catch(error => alert(error.message));
+    }
+
     return ( 
         <div className="login text-white">
             <div id="myCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -26,7 +35,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="sign-in container">
-                <div className="btn btn-lg sign-in-btn">
+                <div className="btn btn-lg sign-in-btn" onClick = { signIn }>
                     Sign In With Google
                     <GoogleIcon />
                 </div>

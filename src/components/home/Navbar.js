@@ -2,16 +2,21 @@ import { Avatar, Button, MenuItem, Menu } from "@mui/material";
 import { useEffect, useState } from 'react';
 import BottomNav from "./BottomNav";
 import { Link } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../firebase";
+import { signOut } from '@firebase/auth';
 
 const Navbar = () => {
     const [show, setShow] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const user = useAuthState(auth);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
       setAnchorEl(null);
+      signOut(auth);
     };
 
     useEffect(() => {
@@ -48,7 +53,7 @@ const Navbar = () => {
                         aria-expanded = { open ? 'true' : undefined }
                         onClick = { handleClick }
                     >
-                        <Avatar />
+                        <Avatar src = { user.photoURL } />
                     </Button>
                     <Menu
                         id = "demo-positioned-menu"

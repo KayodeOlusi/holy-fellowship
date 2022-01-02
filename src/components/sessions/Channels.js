@@ -3,16 +3,22 @@ import ChannelsName from "./ChannelsName";
 import { db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, query } from "firebase/firestore";
+import { useNavigate } from "react-router";
 
 const Channel = () => {
     const q = query(collection(db, "channels"));
     const [channels] = useCollection(q);
+    const navigate = useNavigate();
+
+    const goHome = () => {
+        navigate("/");
+    }
 
     return ( 
         <div className = "channels">
             <div className="channels-header mb-3">
                 <h3>Channels</h3>
-                <Home />
+                <Home onClick = { goHome } />
                 <Search />
             </div>
             <div className="channels-content mt-2">
