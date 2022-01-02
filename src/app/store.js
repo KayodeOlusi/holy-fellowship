@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import appReducer from '../features/appSlice';
+import channelReducer from '../features/channelSlice';
 
 export const store = configureStore({
   reducer: {
-    app: appReducer
+    channel: channelReducer
   }
 });

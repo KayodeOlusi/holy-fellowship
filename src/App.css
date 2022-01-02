@@ -213,6 +213,7 @@
 }
 .channels .channels-header .MuiSvgIcon-root {
   color: whitesmoke;
+  cursor: pointer;
 }
 
 .channels .channels-content hr {
@@ -224,8 +225,15 @@
 .channels .channels-name .channels-name-content {
   padding: 6px;
   background-color: whitesmoke;
-  margin-bottom: 15px;
   border-radius: 5px;
+}
+
+.channels .channels-name .channels-name-content .channels-content-name {
+  background-color: #d4d4d4;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .channels .channels-name .channels-name-content h6 {
@@ -259,6 +267,12 @@
   padding: 1px 2px;
   color: whitesmoke;
   border-radius: 999px;
+  cursor: pointer;
+}
+
+.sessions-sidebar .MuiSvgIcon-root:hover {
+  transform: scale(1.2);
+  transition: ease-in-out 0.3s;
 }
 
 .chat {

@@ -7,7 +7,6 @@ const SessionSidebarOptions = ({ Icon, addOption }) => {
         const channelName = prompt("Add a channel");
 
         if(channelName) {
-            console.log(channelName)
             addDoc(collection(db, "channels"), {
                 name: channelName
             })

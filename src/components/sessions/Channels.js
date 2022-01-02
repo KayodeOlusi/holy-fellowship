@@ -1,13 +1,12 @@
 import { Home, Search } from "@mui/icons-material";
+import ChannelsName from "./ChannelsName";
 import { db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, query } from "firebase/firestore";
-import ChannelsName from "./ChannelsName";
 
 const Channel = () => {
-    const q = query(collection(db, "rooms"));
-    const [ channels ] = useCollection(q);
-    console.log(channels)
+    const q = query(collection(db, "channels"));
+    const [channels] = useCollection(q);
 
     return ( 
         <div className = "channels">
@@ -22,11 +21,11 @@ const Channel = () => {
             </div>
             <div className="channels-name mt-3">
                 <div className="channels-name-content">
-                    { 
+                    {
                         channels?.docs.map(doc => (
-                             <ChannelsName id = { doc.id } key = { doc.id } title = { doc.data().name } />
+                            <ChannelsName className = "channels-content-name" title = { doc.data().name } key = { doc.id } id = { doc.id } />
                         ))
-                    }                    
+                    }                   
                 </div>
             </div>
         </div>
