@@ -23,15 +23,14 @@ function App() {
     <div className="App">
         {
           !user ? (
-            <Login />
+              <Login />
           ) : (
-			<div>
-				<Routes>
-					<Route path = "/" element = { <Home /> } />
+			    <div>
+				    <Routes>
+					      <Route path = "/" element = { <Home /> } />
           			<Route path = "/sessions" element = { <Sessions /> } />
-              		<Route path = "/login" element = { <Login /> } />
-        		</Routes>
-			</div>
+        	  </Routes>
+			    </div>
           )
         }
     </div>

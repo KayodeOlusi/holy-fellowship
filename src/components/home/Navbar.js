@@ -10,7 +10,7 @@ const Navbar = () => {
     const [show, setShow] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const user = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
@@ -18,6 +18,7 @@ const Navbar = () => {
       setAnchorEl(null);
       signOut(auth);
     };
+    console.log(user)
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -53,7 +54,7 @@ const Navbar = () => {
                         aria-expanded = { open ? 'true' : undefined }
                         onClick = { handleClick }
                     >
-                        <Avatar src = { user.photoURL } />
+                        <Avatar src = { user?.photoURL } />
                     </Button>
                     <Menu
                         id = "demo-positioned-menu"
