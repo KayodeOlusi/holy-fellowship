@@ -14,8 +14,7 @@ const ChatInput = ({ channelName, channelId }) => {
 
         if(!channelId) { 
             return false;
-        }
-
+        };
         addDoc(collection(doc(db, "channels", channelId), "messages"), {
             message: input,
             timestamp: serverTimestamp(),
@@ -30,6 +29,7 @@ const ChatInput = ({ channelName, channelId }) => {
             <form>
                 <input
                     type = "text"
+                    value = { input }
                     onChange = {(e) => setInput(e.target.value) }
                     placeholder = {` Message # ${ channelName ? channelName : "channel" } `}
                  />

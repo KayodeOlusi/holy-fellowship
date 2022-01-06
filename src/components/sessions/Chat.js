@@ -1,4 +1,3 @@
-import { StarBorderOutlined } from "@mui/icons-material";
 import { collection, doc, orderBy, query } from "firebase/firestore";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { useSelector } from 'react-redux';
@@ -7,6 +6,7 @@ import { db } from "../../firebase";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
 import FlipMove from "react-flip-move";
+import { StarBorderOutlined } from '@mui/icons-material';
 
 const Chat = () => {
     const channelId = useSelector(selectChannel);
@@ -14,7 +14,6 @@ const Chat = () => {
     const [channelMessages] = useCollection(channelId && 
     query(collection(doc(db, "channels", channelId), "messages"), orderBy("timestamp", "asc")));
 
-    console.log(channelDetails?.data())
 
     return ( 
         <div className="chat">
@@ -48,7 +47,10 @@ const Chat = () => {
                                     }    
                                 </div>
                                 <div className = "chat-input">
-                                    <ChatInput channelName = { channelDetails?.data().name } channelId = { channelId } />
+                                    <ChatInput
+                                        channelName = { channelDetails?.data().name }
+                                        channelId = { channelId }
+                                     />
                                 </div>  
                             </> :
                             <>
