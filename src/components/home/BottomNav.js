@@ -1,20 +1,22 @@
 import BookIcon from '@mui/icons-material/Book';
 import HomeIcon from '@mui/icons-material/Home';
 import MessageIcon from '@mui/icons-material/Message';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Button } from "@mui/material";
+import { Button, Avatar } from "@mui/material";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase';
+import { useNavigate } from "react-router";
+
 
 const BotomNav = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     return ( 
         <div className="navbar-bottom">
                 <Button> <HomeIcon /> </Button>
                 <Button> <BookIcon /> </Button>
-                <Button> <MessageIcon /> </Button>
-                <Button> <AccountCircleIcon src = { user.photoURL } /> </Button>
+                <Button onClick = { () => navigate("/sessions") }> <MessageIcon /> </Button>
+                <Button> <Avatar src = { user?.photoURL } /> </Button>
         </div>
      );
 }

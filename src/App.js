@@ -16,25 +16,24 @@ function App() {
 		  <div className="spinner">
 			  <Spinner name="double-bounce" color="gray"/>
 		  </div>
-	  )
-  }
+	  );
+  };
 
   return (
     <div className="App">
         {
-          !user ? (
-              <Login />
-          ) : (
-			    <div>
-				    <Routes>
-					      <Route path = "/" element = { <Home /> } />
-          			<Route path = "/sessions" element = { <Sessions /> } />
-        	  </Routes>
-			    </div>
-          )
+          !user ? ( <Login /> )
+          : (
+			        <div>
+				        <Routes>
+					        <Route path = "/" element = { <Home /> } />
+          			  <Route path = "/sessions" element = { <Sessions /> } />
+        	      </Routes>
+			        </div>
+            )
         }
     </div>
   );
-}
+};
 
 export default App;

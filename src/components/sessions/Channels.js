@@ -12,7 +12,7 @@ const Channel = () => {
 
     const goHome = () => {
         navigate("/");
-    }
+    };
 
     return ( 
         <div className = "channels">
@@ -29,13 +29,18 @@ const Channel = () => {
                 <div className="channels-name-content">
                     {
                         channels?.docs.map(doc => (
-                            <ChannelsName className = "channels-content-name" title = { doc.data().name } key = { doc.id } id = { doc.id } />
+                            <ChannelsName
+                                className = "channels-content-name"
+                                title = { doc.data().name }
+                                key = { doc.id }
+                                id = { doc.id }
+                             />
                         ))
                     }                   
                 </div>
             </div>
         </div>
      );
-}
+};
  
 export default Channel;

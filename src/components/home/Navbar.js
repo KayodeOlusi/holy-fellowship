@@ -18,12 +18,11 @@ const Navbar = () => {
       setAnchorEl(null);
       signOut(auth);
     };
-    console.log(user)
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if(window.scrollY > 100) {
-                    setShow(true);
+                setShow(true);
             }
             else {
                 setShow(false)

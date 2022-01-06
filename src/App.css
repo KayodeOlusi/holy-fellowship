@@ -287,7 +287,9 @@
     background-color: #d4d4d4;
     height: 100vh;
     position: relative;
-    flex: 0.8;  
+    flex: 0.8;
+    flex-grow: 1;
+    overflow-y: scroll;  
 }
 
 .chat .chat-header .chat-header-content {
@@ -295,11 +297,65 @@
   padding: 10px;
   border-radius: 5px;
   background-color: whitesmoke;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
+.chat .chat-header .chat-header-content .upper-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  display : flex;
+  align-items : center;
+  padding : 20px;
+}
+
+.message-sender {
+  height: 40px;
+  object-fit: contain;
+}
+
+.message-info {
+  padding-left: 20px;
+  word-break: break-all;
+}
+
+.message-info > h5 > span {
+  color : gray;
+  font-weight : 300;
+  margin-left : 4px;
+  font-size : 10px;
+}
+
+.chat-input > form {
+  position: relative;
+  display : flex;
+  justify-content : center;
+}
+
+.chat-input > form > input {
+  position : fixed;
+  right: 8%;
+  bottom : 30px;
+  width: 60%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding : 10px;
+  outline: none;
+}
+
+.chat-input > form > .form-button {
+  position : fixed;
+  bottom : 35px;
+  left : 93%;
+  color: #554616;
+}
+
+.chat-input > form > input[type = text] {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  white-space : nowrap;
+}
 
 /*********************END OF SESSIONS STYLING******************************************/
 
