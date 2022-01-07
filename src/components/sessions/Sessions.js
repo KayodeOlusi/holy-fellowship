@@ -1,13 +1,16 @@
 import Chat from "./Chat";
 import Channels from "./Channels";
 import SessionsSidebar from "./SessionsSidebar";
+import { useSelector } from "react-redux";
+import { selectChannelState } from "../../features/channelSlice";
 
 const Sessions = () => {
+    const channelState = useSelector(selectChannelState);
 
     return ( 
-        <div className="sessions">
+        <div className = "sessions">
             <SessionsSidebar />
-            <Channels />
+            { channelState && <Channels /> }
             <Chat />
         </div>
      );
