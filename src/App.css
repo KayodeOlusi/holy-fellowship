@@ -187,17 +187,16 @@
   height: 100vh;
 }
 
+.preview {
+  width : 40%;
+}
+
 .sessions-sidebar {
-  flex: 0.3;
   background-color: #c89d7c;
-  max-width: 100px;
-  overflow-y: scroll;
   padding: 8px;
 }
 
 .channels {
-  flex: 0.3;
-  max-width: 280px;
   overflow-y: scroll;
   padding: 8px;
   background-color: #dddddd;
@@ -289,7 +288,8 @@
     position: relative;
     flex: 0.8;
     flex-grow: 1;
-    overflow-y: scroll;  
+    overflow-y: scroll;
+    transition: 0.3s ease-in-out;  
 }
 
 .chat .chat-header .chat-header-content {

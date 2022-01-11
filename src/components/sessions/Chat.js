@@ -1,7 +1,7 @@
 import { collection, doc, orderBy, query } from "firebase/firestore";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { useSelector } from 'react-redux';
-import { selectChannel, selectShowChat } from "../../features/channelSlice";
+import { selectChannel } from "../../features/channelSlice";
 import { db } from "../../firebase";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
@@ -10,12 +10,10 @@ import { StarBorderOutlined } from "@mui/icons-material";
 
 const Chat = () => {
     const channelId = useSelector(selectChannel);
-    const chatState = useSelector(selectShowChat);
     const [channelDetails] = useDocument(channelId && doc(db, "channels", channelId));
     const [channelMessages] = useCollection(channelId && 
     query(collection(doc(db, "channels", channelId), "messages"), orderBy("timestamp", "asc")));
-
-
+    
     return ( 
         <div className = "chat">
             <div className="chat-header">

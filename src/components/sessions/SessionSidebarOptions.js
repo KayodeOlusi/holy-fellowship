@@ -1,10 +1,7 @@
 import { addDoc, collection } from "@firebase/firestore";
 import { db } from "../../firebase";
-import { useDispatch } from "react-redux";
-import { closeChannel, showTheChat } from "../../features/channelSlice";
 
-const SessionSidebarOptions = ({ Icon, addOption, showChannelPage }) => {
-    const dispatch = useDispatch();
+const SessionSidebarOptions = ({ Icon, addOption }) => {
     const addChannel = () => {
         const channelName = prompt("Add a channel");
 
@@ -15,26 +12,8 @@ const SessionSidebarOptions = ({ Icon, addOption, showChannelPage }) => {
         };
     };
 
-    const showChannel = () => {
-        dispatch(closeChannel({
-            channelState: true
-        }));
-        dispatch(showTheChat({
-            showChat: false
-        }));
-    };
-
-    const hideChannel = () => {
-        dispatch(closeChannel({
-            channelState: false
-        }));
-        dispatch(showTheChat({
-            showChat: true
-        }))
-    };
-
     return ( 
-        <div className="sessions-sidebar-options text-center" onClick = { addOption ? addChannel : showChannelPage ? showChannel : hideChannel }>
+        <div className="sessions-sidebar-options text-center" onClick = { addOption ? addChannel : null }>
             { Icon && <Icon /> }
         </div>
      );

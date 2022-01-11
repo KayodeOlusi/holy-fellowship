@@ -10,13 +10,9 @@ const SessionsSidebar = () => {
     return ( 
         <div className="sessions-sidebar">
             <Avatar className = "avatar" src = { user?.photoURL } />
-            <h2 className = "mt-3 text-center sessions-name" >SESSIONS</h2>
-            <hr />
-            <SessionSidebarOptions Icon = { Apps } title = "Show Channel" showChannelPage />
-            <SessionSidebarOptions Icon = { MenuOpen } title = "Hide Channel" hideChannelPage />
-            <hr />
+            <SessionSidebarOptions Icon = { Apps } title = "Show Channel" />
+            <SessionSidebarOptions Icon = { MenuOpen } title = "Hide Channel" />
             <SessionSidebarOptions Icon = { Add } title = "Add Channel" addOption />
-            <hr />
         </div>
      );
 }
