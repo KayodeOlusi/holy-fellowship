@@ -4,7 +4,9 @@ import Summary from "./Summary";
 const Sessions = () => {
     return ( 
         <div className = "sessions">
-            <Preview />
+            <div className = "sessions-preview">
+                <Preview />
+            </div>
             <Summary />
         </div>
      );

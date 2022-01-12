@@ -1,4 +1,4 @@
-import { Apps, Add, MenuOpen } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
@@ -10,9 +10,9 @@ const SessionsSidebar = () => {
     return ( 
         <div className="sessions-sidebar">
             <Avatar className = "avatar" src = { user?.photoURL } />
-            <SessionSidebarOptions Icon = { Apps } title = "Show Channel" />
-            <SessionSidebarOptions Icon = { MenuOpen } title = "Hide Channel" />
-            <SessionSidebarOptions Icon = { Add } title = "Add Channel" addOption />
+            <div className = "sessions-sidebar-icons">
+                <SessionSidebarOptions className = "sessions-sidebar-icon" Icon = { Add } title = "Add Channel" addOption />
+            </div>
         </div>
      );
 }

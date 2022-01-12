@@ -1,4 +1,4 @@
-import { Home, Search } from "@mui/icons-material";
+import { Home } from "@mui/icons-material";
 import ChannelsName from "./ChannelsName";
 import { db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -19,7 +19,6 @@ const Channel = () => {
             <div className="channels-header mb-3">
                 <h3>Channels</h3>
                 <Home onClick = { goHome } />
-                <Search />
             </div>
             <div className="channels-content mt-2">
                 <h6>All</h6>

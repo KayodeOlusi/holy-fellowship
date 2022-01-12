@@ -1,12 +1,13 @@
-import React from "react";
 import "./App.css";
-import Login from "./components/auth/Login";
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import Chat from "./components/sessions/Chat";
 import Home from "./components/home/Home";
 import Sessions from "./components/sessions/Sessions";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './firebase'
-import Spinner from 'react-spinkit'
+import Login from "./components/auth/Login";
+import { Routes, Route } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase";
+import Spinner from "react-spinkit";
 
 function App() {
   const [user, loading] = useAuthState(auth);
@@ -28,6 +29,7 @@ function App() {
 				        <Routes>
 					        <Route path = "/" element = { <Home /> } />
           			  <Route path = "/sessions" element = { <Sessions /> } />
+                  <Route path= "/chat" element = { <Chat /> } />
         	      </Routes>
 			        </div>
             )

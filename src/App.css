@@ -187,19 +187,27 @@
   height: 100vh;
 }
 
-.preview {
+.sessions > .sessions-preview {
   width : 40%;
 }
 
 .sessions-sidebar {
   background-color: #c89d7c;
+  display: flex;
+  justify-content: space-between;
   padding: 8px;
+}
+
+.sessions-sidebar-icons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .channels {
   overflow-y: scroll;
   padding: 8px;
   background-color: #dddddd;
+  height: 91.5vh;
 }
 
 .channels::-webkit-scrollbar {
@@ -265,15 +273,10 @@
   font-size: 12px;
 }
 
-.sessions-sidebar .avatar {
-  margin: 0 auto;
-}
-
 .sessions-sidebar .MuiSvgIcon-root {
   margin: 5px 0px;
   padding: 1px 2px;
   color: whitesmoke;
-  border-radius: 999px;
   cursor: pointer;
 }
 
@@ -282,31 +285,44 @@
   transition: ease-in-out 0.3s;
 }
 
-.chat {
-    background-color: #d4d4d4;
-    height: 100vh;
+.summary {
+  background-image: linear-gradient(
+    rgba(0,0,0,0.48),
+    rgba(0,0,0,0.48)
+    ), url('../public/img/bible-three.jpg');
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     position: relative;
-    flex: 0.8;
-    flex-grow: 1;
-    overflow-y: scroll;
-    transition: 0.3s ease-in-out;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
 }
 
-.chat .chat-header .chat-header-content {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
+.summary > h1 {
+  color: whitesmoke;
+}
+
+.chat > .chat-preview {
+  width: 40%;
+}
+
+.chat > .chat-inner {
   background-color: whitesmoke;
+  overflow-y: scroll !important;
+  padding: 10px;
+  width: 60%;
 }
 
-.chat .chat-header .chat-header-content .upper-info {
+.chat > .chat-inner > .chat-header {
   display: flex;
+  align-items: center;
+  padding: 8px;
   justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.chat-messages {
-  margin-top: 10px;
+  background-color: whitesmoke;
+  border-radius: 5px;
 }
 
 .message {
@@ -346,38 +362,7 @@
   color: #777777;
 }
 
-.chat-input > form {
-  position: relative;
-  display : flex;
-  justify-content : center;
-}
-
-.chat-input > form > input {
-  position : fixed;
-  right: 8%;
-  bottom : 30px;
-  width: 60%;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding : 10px;
-  outline: none;
-}
-
-.chat-input > form > .form-button {
-  position : fixed;
-  bottom : 35px;
-  left : 93%;
-  color: #554616;
-}
-
-.chat-input > form > input[type = text] {
-  overflow-wrap: break-word;
-  word-break: break-all;
-  white-space : nowrap;
-}
-
 /*********************END OF SESSIONS STYLING******************************************/
-
 
 
 
