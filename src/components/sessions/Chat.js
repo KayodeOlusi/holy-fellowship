@@ -8,22 +8,28 @@ import Message from "./Message";
 import FlipMove from "react-flip-move";
 import Preview from "./Preview";
 import { ArrowCircleLeft } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Chat = () => {
+    const navigate = useNavigate();
     const channelId = useSelector(selectChannel);
     const [channelDetails] = useDocument(channelId && doc(db, "channels", channelId));
     const [channelMessages] = useCollection(channelId && 
     query(collection(doc(db, "channels", channelId), "messages"), orderBy("timestamp", "asc")));
     
+    const goSessions = () => {
+        navigate("/sessions");
+    }
+
     return ( 
-        <div className = "chat d-flex">
+        <div className = "chat">
             <div className = "chat-preview">
                 <Preview />
             </div>
             <div className = "chat-inner">
                 <div className = "chat-header">
-                    <h6>Channel</h6>
-                    <ArrowCircleLeft />
+                    <h6>{ channelDetails?.data().name }</h6>
+                    <ArrowCircleLeft onClick = { goSessions } />
                 </div>
                 <div className="chat-messages">
                         {
@@ -43,12 +49,11 @@ const Chat = () => {
                             })
                         }    
                 </div>
-                <div className = "chat-input">
-                        <ChatInput
-                            channelName = { channelDetails?.data().name }
-                            channelId = { channelId }
-                        />
-                </div>
+                <ChatInput
+                    channelName = { channelDetails?.data().name }
+                    channelId = { channelId }
+                />
+
             </div>                  
         </div>
      );

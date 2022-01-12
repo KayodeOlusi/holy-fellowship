@@ -305,6 +305,12 @@
   color: whitesmoke;
 }
 
+html .chat {
+  display: flex;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
 .chat > .chat-preview {
   width: 40%;
 }
@@ -313,6 +319,7 @@
   background-color: whitesmoke;
   padding: 10px;
   width: 60%;
+  overflow-y: scroll;
 }
 
 .chat > .chat-inner > .chat-header {
@@ -324,6 +331,38 @@
   color: whitesmoke;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.chat > .chat-inner > .chat-header > h6 {
+  font-weight: 900;
+}
+
+.chat > .chat-inner > .chat-header > .MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.chat-input > form {
+  position: relative;
+  display : flex;
+  justify-content : center;
+}
+
+.chat-input > form > input {
+  position : fixed;
+  bottom : 30px;
+  width: 40%;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding : 15px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input > form > .form-button {
+  position : fixed;
+  bottom : 35px;
+  left : 90%;
+  color: #554616;
 }
 
 .message {
@@ -433,9 +472,8 @@
     font-size: 13px;
   }
 
-  .sessions-sidebar {
-    flex: 0.2;
-    max-width: 80px;
+  .sessions > .sessions-preview  {
+    width: 100%;
   }
 
   .sessions-sidebar > .avatar {
@@ -443,25 +481,26 @@
     height: 24px !important;
   }
 
-  .sessions-sidebar > .sessions-name {
+  .summary {
     display: none;
   }
 
-  .channels {
-    flex: 0.6;
-    width: 600px;
+  .chat > .chat-preview {
+    display: none;
   }
 
-  .channels .channels-header h3 {
-    font-size: 14px;
+  .chat > .chat-inner {
+    width: 100%;
   }
 
-  .channels .channels-header .MuiSvgIcon-root {
-    font-size: 20px;
+  .chat-input > form > input {
+    bottom: 10px;
+    padding: 8px;
+    width: 80%;
   }
-
-  .channels .channels-name .channels-name-content h6 {
-    font-size: 11px;
+  .chat-input > form > .form-button {
+    bottom: 13px;
+    left: 86%;
   }
 }
 
@@ -487,9 +526,30 @@
     padding: 0px 25px;
   }
 
-  .sessions-sidebar {
-    flex: 0.2;
-    max-width: 80px;
+  .sessions > .sessions-preview  {
+    width: 100%;
+  }
+
+  .summary {
+    display: none;
+  }
+
+  .chat > .chat-preview {
+    display: none;
+  }
+
+  .chat > .chat-inner {
+    width: 100%;
+  }
+
+  .chat-input > form > input {
+    bottom: 10px;
+    padding: 8px;
+    width: 80%;
+  }
+  .chat-input > form > .form-button {
+    bottom: 13px;
+    left: 86%;
   }
 }
 
