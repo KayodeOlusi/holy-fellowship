@@ -311,7 +311,6 @@
 
 .chat > .chat-inner {
   background-color: whitesmoke;
-  overflow-y: scroll !important;
   padding: 10px;
   width: 60%;
 }
@@ -321,8 +320,10 @@
   align-items: center;
   padding: 8px;
   justify-content: space-between;
-  background-color: whitesmoke;
+  background-color: #777777;
+  color: whitesmoke;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .message {
