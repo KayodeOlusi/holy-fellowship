@@ -5,7 +5,6 @@ import { selectChannel } from "../../features/channelSlice";
 import { db } from "../../firebase";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
-import FlipMove from "react-flip-move";
 import Preview from "./Preview";
 import { ArrowCircleLeft } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +35,6 @@ const Chat = () => {
                             channelMessages?.docs.map(doc => {
                                 const { message, user, userImage, timestamp } = doc.data();
                                     return(
-                                        <FlipMove>
                                             <Message
                                                 key = { doc.id }
                                                 message = { message }
@@ -44,10 +42,12 @@ const Chat = () => {
                                                 userImage = { userImage }
                                                 timestamp = { timestamp }
                                             />
-                                        </FlipMove>
                                     )
                             })
                         }    
+                </div>
+                <div className="chatting-ref">
+
                 </div>
                 <ChatInput
                     channelName = { channelDetails?.data().name }

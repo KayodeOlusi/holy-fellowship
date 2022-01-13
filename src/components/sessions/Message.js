@@ -1,10 +1,9 @@
 import { Avatar } from "@mui/material";
 import moment from 'moment';
-import { forwardRef } from "react";
 
-const Message = forwardRef(({ user, userImage, timestamp, message }, ref) => {
+const Message = ({ user, userImage, timestamp, message }) => {
     return ( 
-        <div className = "message" ref = { ref }>
+        <div className = "message">
             <Avatar src = { userImage } className = "message-sender" />
 
             <div className="message-info">
@@ -18,6 +17,6 @@ const Message = forwardRef(({ user, userImage, timestamp, message }, ref) => {
             </div>
         </div>
      );
-})
+}
  
 export default Message;
