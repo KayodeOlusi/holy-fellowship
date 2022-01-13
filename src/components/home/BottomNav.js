@@ -13,9 +13,9 @@ const BotomNav = () => {
 
     return ( 
         <div className="navbar-bottom">
-                <Button> <HomeIcon /> </Button>
-                <Button> <BookIcon /> </Button>
-                <Button onClick = { () => navigate("/sessions") }> <MessageIcon /> </Button>
+                <Button onClick = {() => navigate("/")}> <HomeIcon /> </Button>
+                <Button onClick = {() => navigate("/bible")}> <BookIcon /> </Button>
+                <Button onClick = {() => navigate("/sessions")}> <MessageIcon /> </Button>
                 <Button> <Avatar src = { user?.photoURL } /> </Button>
         </div>
      );

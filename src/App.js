@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import Spinner from "react-spinkit";
+import Bible from "./components/bible/Bible";
 
 function App() {
   const [user, loading] = useAuthState(auth);
@@ -30,6 +31,7 @@ function App() {
 					        <Route path = "/" element = { <Home /> } />
           			  <Route path = "/sessions" element = { <Sessions /> } />
                   <Route path= "/chat" element = { <Chat /> } />
+                  <Route path = "/bible" element = { <Bible /> } />
         	      </Routes>
 			        </div>
             )
