@@ -6,7 +6,7 @@ const Login = () => {
 
     const signIn = (e) => {
         e.preventDefault();
-        signInWithPopup(auth, provider).catch(error => alert(error.message));
+        signInWithPopup(auth, provider).catch(error => console.log(error));
     }
 
     return ( 
