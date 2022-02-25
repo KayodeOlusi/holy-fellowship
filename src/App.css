@@ -410,6 +410,47 @@ html .chat {
 
 /********************BIBLE STYLING************************************************************/
 
+.bible {
+  background-image: linear-gradient(
+    rgba(0,0,0,0.48),
+    rgba(0,0,0,0.48)
+  ), url('../public/img/bible-one.jpg');
+  background-position: center center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.read-bible {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
