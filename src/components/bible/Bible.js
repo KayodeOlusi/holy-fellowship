@@ -1,13 +1,11 @@
 import ReadBible from "./ReadBible";
-import Navbar from "../home/Navbar";
-import BottomNav from "../home/BottomNav";
+import BibleNav from "./BibleNav";
 
 const Bible = () => {
     return ( 
         <div className="bible">
-            <Navbar />
+            <BibleNav />
             <ReadBible />
-            <BottomNav />
         </div>
      );
 }

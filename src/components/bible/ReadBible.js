@@ -1,14 +1,19 @@
 const ReadBilbe = () => {
     return ( 
-        <div className="read-bible">
-            <div className="select-book">
+        <div className="read-bible container">
+            <div className="select-book container">
                 <input
                     type = "text"
                     name = "bible"
                     id = "bible"
                     placeholder = "Select a bible passage"
                 />
-                { /* Create a modal to show the bible name and chapters */ }
+                <input
+                    type = "text"
+                    name = "bible"
+                    id = "bible"
+                    placeholder = "Select a version"
+                />
             </div>
         </div>
      );

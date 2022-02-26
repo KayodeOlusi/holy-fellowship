@@ -409,24 +409,56 @@ html .chat {
 /*********************END OF SESSIONS STYLING******************************************/
 
 /********************BIBLE STYLING************************************************************/
-
-.bible {
-  background-image: linear-gradient(
-    rgba(0,0,0,0.48),
-    rgba(0,0,0,0.48)
-  ), url('../public/img/bible-one.jpg');
-  background-position: center center; 
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  background-attachment: fixed;
-  position: relative;
+.bible-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 5px;
+  border-bottom: 0.1px solid #eee;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
+.bible-scroll {
+  background-color: #c89d7c;
+  transition: all ease-in-out 0.8s;
+  border-bottom: none;
+}
 
+.bible-nav .bible-nav-left .nav-links .navbar-links {
+  color: #000;
+  text-decoration: none;
+  padding: 0px 35px;
+  font-size: 14px;
+}
 
+.bible-nav .bible-nav-left .nav-links .navbar-links:hover {
+  color: #777777;
+  transition: ease-in-out 0.3s;
+}
+
+.read-bible {
+  margin-top: 15px;
+  max-width: 968px;
+}
+
+.read-bible .select-book {
+  display: flex;
+  justify-content: space-around;
+}
+
+.read-bible .select-book input {
+  padding: 10px;
+  border: none;
+  border-bottom: 0.1px solid #e1e1e1;
+  font-size: 14px;
+}
+
+.read-bible .select-book input:focus {
+  outline: 0;
+}
 
 
 
@@ -457,6 +489,10 @@ html .chat {
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .navbar {
+    display: none;
+  }
+
+  .bible-nav {
     display: none;
   }
 
