@@ -460,6 +460,28 @@ html .chat {
   outline: 0;
 }
 
+.the-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.the-modal .modal-container {
+  background-color: #f4f4f4;
+  padding: 5px;
+  width: 35%; /*change the size of the modal box here*/
+  height: 300px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
 
 
 
@@ -599,6 +621,12 @@ html .chat {
   .message > .message-info > p {
     font-size: 12px;
   }
+
+  .read-bible .select-book input {
+    padding: 10px;
+    width: 120px;
+    font-size: 12px;
+  }  
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
