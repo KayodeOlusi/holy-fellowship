@@ -449,76 +449,11 @@ html .chat {
   justify-content: space-around;
 }
 
-.read-bible .select-book input {
-  padding: 10px;
-  border: none;
-  border-bottom: 0.1px solid #e1e1e1;
-  font-size: 14px;
+.read-bible .select-book details {
+  display: flex;
+  justify-content: space-between;
 }
 
-.read-bible .select-book input:focus {
-  outline: 0;
-}
-
-.the-modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.the-modal .modal-container {
-  background-color: #f4f4f4;
-  padding: 5px;
-  width: 50%; /*change the size of the modal box here*/
-  height: 450px; /*change the height of the modal box here*/
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 10% auto;
-  position: relative;
-  overflow-y: scroll;
-}
-
-.the-modal .modal-container::-webkit-scrollbar {
-  display: none;
-}
-
-html .book {
-  padding: 5px;
-  border-right: 1px solid rgb(59, 57, 57); 
-  overflow-y: inherit !important;
-}
-
-.book .header h5 {
-  font-weight: 700;
-  color: #777777;
-}
-
-html .book .book-inner {
-  overflow-y: scroll !important;
-}
-
-.book .book-inner .books {
-  cursor: pointer;
-  padding: 10px 15px;
-  margin-top: 5px;
-}
-
-.book .book-inner .books h6 {
-  font-size: 12px;
-}
-
-.book .book-inner .books:hover {
-  background-color: gray;
-  border-radius: 47px;
-}
-
-html .chapter {
-  overflow-y: scroll !important;
-}
 
 
 

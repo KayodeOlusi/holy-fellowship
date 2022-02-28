@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   book: null,
+  bookId: null,
   chapter: null,
-  open: false
 };
 
 export const bibleSlice = createSlice({
@@ -11,12 +11,16 @@ export const bibleSlice = createSlice({
   initialState,
 
   reducers: {
-    openModal: (state, action) => {
-      state.open = action.payload.open;
+    holdBook: (state, action) => {
+      state.book = action.payload.book
+    },
+    holdId: (state, action) => {
+      state.bookId = action.payload.bookId
     }
   }
 });
 
-export const { openModal } = bibleSlice.actions;
-export const selectOpen = (state) => state.bible.open;
+export const { holdBook, holdId } = bibleSlice.actions;
+export const selectBook = (state) => state.bible.book;
+export const selectId = (state) => state.bible.bookId;
 export default bibleSlice.reducer;
