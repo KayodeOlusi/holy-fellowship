@@ -1,35 +1,38 @@
 import { useEffect, useState } from "react";
-// import { useSelector, useDispatch } from "react-redux";
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 
 const ReadBilbe = () => {
+    const [book, setBook] = useState("");
+    const [bookChapter, setBookChapter] = useState("");
 
     const [books, setBooks] = useState([]);
     const [chapter, setChapter] = useState([]);
 
-    const [book, setBook] = useState("");
-    const [bookId, setBookId] = useState("");
+    const storeBook = async (e) => {
+        await fetch(`https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-02/books/${e}/chapters`, {
+            method: "GET",
+            headers: {
+                "accept": "application/json",
+                "api-key": "398de9409e93c548e14b1b1337871a94"
+            }
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(result => {
+            setChapter(result.data);
+        })
+        .catch(e => console.log(e));
+        console.log(book, bookChapter)
+    }
 
-    // const storeBook = () => {
-    //     fetch(`https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-02/books/${bookId}/chapters`, {
-    //         method: "GET",
-    //         headers: {
-    //             "accept": "application/json",
-    //             "api-key": "398de9409e93c548e14b1b1337871a94"
-    //         }
-    //     })
-    //     .then(res => {
-    //         return res.json();
-    //     })
-    //     .then(data => {
-    //         setChapter(data.data)
-    //     })
-    //     .catch(e => console.log(e));
-    // }
-    // Work on state of book .....
+    const holdDetails = (e) => {
+        setBook(e.target.value);
+        storeBook(e.target.value);
+    }
 
     useEffect(() => {
         fetch("https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books", {
@@ -42,8 +45,8 @@ const ReadBilbe = () => {
         .then((res) => {
             return res.json();
         })
-        .then(data => {
-            setBooks(data.data);
+        .then(result => {
+            setBooks(result.data);
         })
         .catch(e => console.log(e))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,12 +64,12 @@ const ReadBilbe = () => {
                                     id = "demo-simple-select-required"
                                     value = { book }
                                     label = "Books *"
-                                    onChange = {(e) => setBook(e.target.value)}
+                                    onChange = {(e) => holdDetails(e)}
                                 >
                                     {
                                         books?.map(book => {
                                             return (
-                                                <MenuItem value = { book.name } key = { book.id }>{ book.name }</MenuItem>
+                                                <MenuItem value = { book.id } id = { book.id } key = { book.id }>{ book.name }</MenuItem>
                                             )
                                         })
                                     }
@@ -78,9 +81,9 @@ const ReadBilbe = () => {
                                 <Select
                                     labelId = "demo-simple-select-required-label"
                                     id = "demo-simple-select-required"
-                                    value = { bookId }
+                                    value = { bookChapter }
                                     label = "Chapter *"
-                                    onChange = {(e) => setBookId(e.target.value)}
+                                    onChange = {(e) => setBookChapter(e.target.value)}
                                 >
                                     {
                                         chapter?.map(chapt => {
@@ -89,6 +92,7 @@ const ReadBilbe = () => {
                                             )
                                         })
                                     }
+                                    {/** Work on chapters next */}
                                 </Select>
                         </FormControl>  
                     </div>
