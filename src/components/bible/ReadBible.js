@@ -3,16 +3,21 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import Button from "@mui/material/Button";
+import { useDispatch } from "react-redux";
+import { keepBook, keepChapter } from "../../features/bibleSlice";
 
 const ReadBilbe = () => {
+    const dispatch = useDispatch();
     const [book, setBook] = useState("");
     const [bookChapter, setBookChapter] = useState("");
 
     const [books, setBooks] = useState([]);
     const [chapter, setChapter] = useState([]);
 
-    const storeBook = async (e) => {
-        await fetch(`https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-02/books/${e}/chapters`, {
+    const holdBook = (e) => {
+        setBook(e.target.value);
+        fetch(`https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books/${e.target.value}/chapters`, {
             method: "GET",
             headers: {
                 "accept": "application/json",
@@ -26,13 +31,18 @@ const ReadBilbe = () => {
             setChapter(result.data);
         })
         .catch(e => console.log(e));
-        console.log(book, bookChapter)
     }
 
-    const holdDetails = (e) => {
-        setBook(e.target.value);
-        storeBook(e.target.value);
+    const holdChapter = (e) => {
+        setBookChapter(e.target.value);
     }
+
+    const proceed = () => {
+        dispatch(keepBook({ book }));
+        dispatch(keepChapter({ chapter: bookChapter }));  
+    }
+
+
 
     useEffect(() => {
         fetch("https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books", {
@@ -47,13 +57,13 @@ const ReadBilbe = () => {
         })
         .then(result => {
             setBooks(result.data);
+            localStorage.setItem("books", result.data);
         })
         .catch(e => console.log(e))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return ( 
-        <>
             <div className="read-bible container">
                 <div className="select-book container">
                     <div className = "details">
@@ -64,7 +74,7 @@ const ReadBilbe = () => {
                                     id = "demo-simple-select-required"
                                     value = { book }
                                     label = "Books *"
-                                    onChange = {(e) => holdDetails(e)}
+                                    onChange = {(e) => holdBook(e)}
                                 >
                                     {
                                         books?.map(book => {
@@ -83,12 +93,12 @@ const ReadBilbe = () => {
                                     id = "demo-simple-select-required"
                                     value = { bookChapter }
                                     label = "Chapter *"
-                                    onChange = {(e) => setBookChapter(e.target.value)}
+                                    onChange = {(e) => holdChapter(e)}
                                 >
                                     {
                                         chapter?.map(chapt => {
                                             return (
-                                                <MenuItem key = { chapt.id }>{ chapt.number }</MenuItem>
+                                                <MenuItem value = { chapt.number } id = { chapt.id } key = { chapt.id }>{ chapt.number }</MenuItem>
                                             )
                                         })
                                     }
@@ -98,25 +108,10 @@ const ReadBilbe = () => {
                     </div>
                     
                     <div>
-                        <FormControl required sx = {{ m: 1, minWidth: 120 }}>
-                            <InputLabel id="demo-simple-select-required-label">Books</InputLabel>
-                                <Select
-                                    labelId = "demo-simple-select-required-label"
-                                    id = "demo-simple-select-required"
-                                    value = "10"
-                                    label = "Books *"
-                        
-                                >
-                                    <MenuItem value=""><em>None</em></MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                        </FormControl>
+                        <Button onClick = { proceed }>Proceed</Button>
                     </div>
                 </div>
             </div>
-        </>
      );
 }
  

@@ -454,6 +454,10 @@ html .chat {
   justify-content: space-between;
 }
 
+.detail {
+  max-width: 680px;
+  margin: 20px auto;
+}
 
 
 

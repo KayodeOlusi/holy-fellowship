@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   book: null,
-  bookId: null,
   chapter: null,
 };
 
@@ -11,16 +10,16 @@ export const bibleSlice = createSlice({
   initialState,
 
   reducers: {
-    holdBook: (state, action) => {
+    keepBook: (state, action) => {
       state.book = action.payload.book
     },
-    holdId: (state, action) => {
-      state.bookId = action.payload.bookId
+    keepChapter: (state, action) => {
+      state.chapter = action.payload.chapter
     }
   }
 });
 
-export const { holdBook, holdId } = bibleSlice.actions;
+export const { keepBook, keepChapter } = bibleSlice.actions;
 export const selectBook = (state) => state.bible.book;
-export const selectId = (state) => state.bible.bookId;
+export const selectChapter = (state) => state.bible.chapter;
 export default bibleSlice.reducer;
