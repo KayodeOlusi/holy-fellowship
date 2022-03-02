@@ -1,11 +1,27 @@
+import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectBook, selectChapter } from "../../features/bibleSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { decrementChapter, incrementChapter, selectBook, selectChapter, selectChapterLength } from "../../features/bibleSlice";
 
 const Details = () => {
+    const dispatch = useDispatch();
     const theBook = useSelector(selectBook);
     const theChapter = useSelector(selectChapter);
+    const theChapterLength = useSelector(selectChapterLength)
     const [result, setResult] = useState(null);
+    const [edit, setEdit] = useState(null);
+
+    const increment = () => {
+        dispatch(incrementChapter({ theChapter }));
+        console.log(theChapter)
+        window.scrollTo(0, 0);
+    }
+
+    const decrement = () => {
+        dispatch(decrementChapter({ theChapter }));
+        console.log(theChapter)
+        window.scrollTo(0, 0);
+    }
 
     useEffect(() => {
         fetch(`https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/passages/${theBook}.${theChapter}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
@@ -20,7 +36,7 @@ const Details = () => {
         })
         .then(result => {
             setResult(result.data);
-            console.log(result.data);
+            setEdit(result?.data.content.split("."));
         })
         .catch(e => console.log(e)); 
     },[theBook, theChapter])
@@ -28,7 +44,27 @@ const Details = () => {
     return ( 
         <div className = "detail text-center">
             <h3>{ result?.reference }</h3>
-            <p>{ result?.content }</p>
+            <div className = "text">
+                { 
+                    edit?.map((edited, index) => (
+                        <p key = { index }>
+                            { edited }
+                        </p>
+                    ))
+                }
+                {
+                    edit !== null ? 
+                        <div className = "bottom">
+                            <h6>King James Version(KJV)</h6>
+
+                            <div className = "btns">
+                                <Button disabled = { (theChapter) === 1 ? true : false } onClick = { decrement }>Previous</Button>
+                                <Button disabled = { (theChapter) === theChapterLength ? true : false } onClick = { increment }>Next</Button>
+                            </div>
+                        </div>
+                        : ""
+                }
+            </div>
         </div>
      );
 }

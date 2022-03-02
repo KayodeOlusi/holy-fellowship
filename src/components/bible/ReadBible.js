@@ -5,12 +5,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
-import { keepBook, keepChapter } from "../../features/bibleSlice";
+import { holdChapterLength, keepBook, keepChapter } from "../../features/bibleSlice";
 
 const ReadBilbe = () => {
     const dispatch = useDispatch();
     const [book, setBook] = useState("");
     const [bookChapter, setBookChapter] = useState("");
+    const [chapterLength, setChapterLength] = useState(null);
 
     const [books, setBooks] = useState([]);
     const [chapter, setChapter] = useState([]);
@@ -28,18 +29,20 @@ const ReadBilbe = () => {
             return res.json();
         })
         .then(result => {
+            setChapterLength(result.data.length - 1);
             setChapter(result.data);
         })
         .catch(e => console.log(e));
     }
 
     const holdChapter = (e) => {
-        setBookChapter(e.target.value);
+        setBookChapter(Number(e.target.value));
     }
 
     const proceed = () => {
         dispatch(keepBook({ book }));
-        dispatch(keepChapter({ chapter: bookChapter }));  
+        dispatch(keepChapter({ chapter: bookChapter }));
+        dispatch(holdChapterLength({ chapterLength }));  
     }
 
 
@@ -57,7 +60,6 @@ const ReadBilbe = () => {
         })
         .then(result => {
             setBooks(result.data);
-            localStorage.setItem("books", result.data);
         })
         .catch(e => console.log(e))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -104,7 +106,7 @@ const ReadBilbe = () => {
                                     }
                                     {/** Work on chapters next */}
                                 </Select>
-                        </FormControl>  
+                        </FormControl> 
                     </div>
                     
                     <div>

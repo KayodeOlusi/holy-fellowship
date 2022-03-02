@@ -441,7 +441,7 @@ html .chat {
 
 .read-bible {
   margin-top: 15px;
-  max-width: 968px;
+  /* max-width: 1024px; */
 }
 
 .read-bible .select-book {
@@ -458,6 +458,21 @@ html .chat {
   max-width: 680px;
   margin: 20px auto;
 }
+
+.detail .text {
+  margin-bottom: 200px;
+}
+
+.detail .text .bottom h6 {
+  font-weight: 700;
+}
+
+.detail .text .bottom .btns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
 
 
 
