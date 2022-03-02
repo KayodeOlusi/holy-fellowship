@@ -52,6 +52,62 @@
 }
 /***********END OF LOGIN STYLINGS********************************************/
 
+/*********************Modal Component***********/
+.the-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.the-modal .modal-container {
+  background-color: #f4f4f4;
+  padding: 5px;
+  width: 35%; /*change the size of the modal box here*/
+  height: 200px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+.the-modal .modal-container .header {
+  margin: 15px auto;
+  text-align: center;
+  padding: 0px 50px;
+}
+
+.the-modal .modal-container .contents {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.the-modal .modal-container .contents form {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.the-modal .modal-container .contents form input {
+  padding: 5px;
+  border-radius: 47px;
+  width: 320px;
+  font-size: 12px;
+  border: 0.1px solid gray;
+}
+
+.the-modal .modal-container .contents form .modal-button {
+  background-color: #c89d7c;
+  margin-top: 10px;
+  border-radius: 47px;
+  padding: 5px 70px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 /*********************NAVBAR STYLING******************************************/
 .navbar {
   position: fixed;
@@ -150,7 +206,6 @@
 
 .footer {
   background-color: #554616;
-  margin-bottom: 14px;
 }
 
 .newsletter .newsletter-content h2 {
@@ -177,6 +232,22 @@
   background-color: #777777;
   color: whitesmoke;
   padding: 5px;
+}
+
+.bottom-footer {
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
+.bottom-footer .row {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.bottom-footer .row .MuiSvgIcon-root {
+  margin: 2px 10px;
+  font-size: 24px;
+  color: #554616;
 }
 /*********************END OF FOOTER STYLING******************************************/
 
@@ -459,6 +530,11 @@ html .chat {
   justify-content: space-between;
 }
 
+.read-bible .select-book details .MuiSelect{
+  color: red !important;
+  background-color: yellow !important;
+}
+
 .detail {
   max-width: 680px;
   margin: 20px auto;
@@ -470,25 +546,35 @@ html .chat {
 
 .detail .text {
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 20px;
   line-height: 35px;
+  height: 500px;
+  overflow-y: scroll;
 }
 
-.detail .text .bottom h6 {
+.detail .text::-webkit-scrollbar {
+  display: none;
+}
+
+.detail .bottom {
+  margin-bottom: 200px;
+}
+
+.detail .bottom h6 {
   font-weight: 700;
 }
 
-.detail .text .bottom .btns {
+.detail .bottom .btns {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
 }
 
-.detail .text .bottom .btns .thebutton {
+.detail .bottom .btns .thebutton {
   background-color: whitesmoke;
 }
 
-.detail .text .bottom .btns .thebutton .MuiSvgIcon-root{
+.detail .bottom .btns .thebutton .MuiSvgIcon-root{
   font-size: 36px;
 }
 
@@ -525,6 +611,28 @@ html .chat {
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .navbar {
     display: none;
+  }
+
+  .the-modal .modal-container {
+    margin: 50% auto;
+    width: 300px;
+    height:200px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 14px;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 220px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
+    margin-top: 10px;
+    padding: 5px 40px;
+    font-size: 12px;
   }
 
   .bible-nav {
@@ -581,11 +689,30 @@ html .chat {
 
   .newsletter .newsletter-content button {
     background-color: #554616;
+    margin-top: 5px;
   }
 
   .newsletter .newsletter-content input {
     padding: 5px 8px;
     font-size: 13px;
+  }
+
+  .bottom-footer {
+    padding-bottom: 68px;
+    background-color: whitesmoke;
+  }
+  
+  .bottom-footer .row {
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .bottom-footer .row .MuiSvgIcon-root {
+    font-size: 20px;
+  }
+
+  .channels {
+    height: 99.5vh;
   }
 
   .sessions > .sessions-preview  {
@@ -612,11 +739,12 @@ html .chat {
   .chat-input > form > input {
     bottom: 10px;
     padding: 8px;
+    left: 20px;
     width: 80%;
   }
   .chat-input > form > .form-button {
     bottom: 13px;
-    left: 86%;
+    left: 84%;
   }
 
   .message > .message-sender {
@@ -636,19 +764,46 @@ html .chat {
     font-size: 12px;
   }
 
+  .read-bible .select-book .proceed {
+    margin-top: 12px;
+  }
+
   .detail .text {
     padding: 20px;
     line-height: 35px;
   }  
 
-  .detail .text .bottom .btns {
+  .detail .bottom .btns {
     margin-top: 20px;
+    padding: 0px 20px;
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .carousel-inner .texts{
     margin-top: 70%;
+  }
+
+  .the-modal .modal-container {
+    margin: 40% auto;
+    width: 300px;
+    height:200px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 14px;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 220px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
+    margin-top: 10px;
+    padding: 5px 40px;
+    font-size: 12px;
   }
 
   .texts > h1 {
@@ -694,19 +849,46 @@ html .chat {
     left: 89%;
   }
 
+  .read-bible .select-book .proceed {
+    margin-top: 12px;
+  }
+
   .detail .text {
     padding: 30px;
     line-height: 35px;
   }  
 
-  .detail .text .bottom .btns {
+  .detail .bottom .btns {
     margin-top: 30px;
+    padding: 0px 20px;
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .carousel-inner .texts{
     margin-top: 50%;
+  }
+
+  .the-modal .modal-container {
+    margin: 30% auto;
+    width: 300px;
+    height:200px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 14px;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 220px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
+    margin-top: 10px;
+    padding: 5px 40px;
+    font-size: 12px;
   }
 
   .texts > h1 {
@@ -728,6 +910,7 @@ html .chat {
 
   .newsletter .newsletter-content button {
     background-color: #554616;
+    margin-top: 5px;
   }
 }
 

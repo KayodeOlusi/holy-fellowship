@@ -1,3 +1,4 @@
+import Bottom from "./Bottom.js";
 import BottomPage from "./BottomPage.js";
 import Footer from "./Footer.js";
 import FrontImage from "./FrontImage.js";
@@ -10,6 +11,7 @@ const Home = () => {
             <FrontImage />
             <BottomPage />
             <Footer />
+            <Bottom />
         </div>
      );
 }

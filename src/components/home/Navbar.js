@@ -16,7 +16,9 @@ const Navbar = () => {
     };
     const handleClose = () => {
       setAnchorEl(null);
-      signOut(auth);
+    };
+    const logOut = () => {
+        signOut(auth);
     };
 
     useEffect(() => {
@@ -69,8 +71,7 @@ const Navbar = () => {
                             horizontal: 'left'
                         }}
                     >
-                        <MenuItem onClick = { handleClose }>Profile</MenuItem>
-                        <MenuItem onClick = { handleClose }>Logout</MenuItem>
+                        <MenuItem onClick = { logOut }>Logout</MenuItem>
                     </Menu>
                 </div>
             </div>

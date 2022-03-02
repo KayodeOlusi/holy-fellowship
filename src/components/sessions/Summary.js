@@ -1,7 +1,7 @@
 const Summary = () => {
     return ( 
-        <div className="summary">
-            <h1>Pick a Channel</h1>
+        <div className = "summary">
+            <h1>Select or create a Channel</h1>
         </div>
      );
 }

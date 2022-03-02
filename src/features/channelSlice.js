@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  channelId: null
+  channelId: null,
+  themodal: false
 };
 
 export const channelSlice = createSlice({
@@ -11,10 +12,14 @@ export const channelSlice = createSlice({
   reducers: {
     enterChannel: (state, action) => {
       state.channelId = action.payload.channelId;
+    },
+    showModal: (state, action) => {
+      state.themodal = action.payload.themodal;
     }
   }
 });
 
-export const { enterChannel } = channelSlice.actions;
+export const { enterChannel, showModal } = channelSlice.actions;
 export const selectChannel = (state) => state.channel.channelId;
+export const selectModalState = (state) => state.channel.themodal;
 export default channelSlice.reducer;

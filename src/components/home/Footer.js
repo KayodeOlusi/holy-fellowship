@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="col-sm-12 col-md-6 col-lg-6 text-center mt-3">
                         <form>
                             <input type = "text" placeholder = "Your Email" />
-                            <button className = "btn mx-3">Subscribe</button>
+                            <button className = "btn mx-3" onClick = {(e) => { e.preventDefault() }}>Subscribe</button>
                         </form>
                     </div>
                 </div>

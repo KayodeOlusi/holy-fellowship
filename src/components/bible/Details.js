@@ -54,23 +54,23 @@ const Details = () => {
                         </p>
                     ))
                 }
-                {
-                    edit !== null ? 
-                        <div className = "bottom">
-                            <h6>King James Version(KJV)</h6>
-
-                            <div className = "btns">
-                                <Button className = "thebutton" disabled = { (theChapter) === 1 ? true : false } onClick = { decrement }>
-                                    <NavigateBeforeIcon />
-                                </Button>
-                                <Button className = "thebutton" disabled = { (theChapter) === theChapterLength ? true : false } onClick = { increment }>
-                                    <NavigateNextIcon />
-                                </Button>
-                            </div>
-                        </div>
-                        : ""
-                }
             </div>
+            {
+                edit !== null ? 
+                    <div className = "bottom">
+                        <h6>King James Version(KJV)</h6>
+
+                        <div className = "btns">
+                            <Button className = "thebutton" disabled = { (theChapter) === 1 ? true : false } onClick = { decrement }>
+                                <NavigateBeforeIcon />
+                            </Button>
+                            <Button className = "thebutton" disabled = { (theChapter) === theChapterLength ? true : false } onClick = { increment }>
+                                <NavigateNextIcon />
+                            </Button>
+                        </div>
+                    </div>
+                : ""
+            }
         </div>
      );
 }

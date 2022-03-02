@@ -69,12 +69,12 @@ const ReadBilbe = () => {
             <div className="read-bible container">
                 <div className="select-book container">
                     <div className = "details">
-                        <FormControl required sx = {{ m: 1, minWidth: 120 }}>
+                        <FormControl required xs = {{ m: 1, minWidth: 60 }}>
                             <InputLabel id="demo-simple-select-required-label">Books</InputLabel>
                                 <Select
                                     labelId = "demo-simple-select-required-label"
                                     id = "demo-simple-select-required"
-                                    className = "form"
+                                    className = "forms"
                                     value = { book }
                                     label = "Books *"
                                     onChange = {(e) => holdBook(e)}
@@ -89,12 +89,13 @@ const ReadBilbe = () => {
                                 </Select>
                         </FormControl>
 
-                        <FormControl required sx = {{ m: 1, minWidth: 120 }} className = "form">
-                            <InputLabel id="demo-simple-select-required-label">Chapter</InputLabel>
+                        <FormControl required xs = {{ m: 1, minWidth: 60 }} className = "form">
+                            <InputLabel id="demo-simple-select-required-label">Chpt</InputLabel>
                                 <Select
                                     labelId = "demo-simple-select-required-label"
                                     id = "demo-simple-select-required"
                                     value = { bookChapter }
+                                    className = "forms"
                                     label = "Chapter *"
                                     onChange = {(e) => holdChapter(e)}
                                 >

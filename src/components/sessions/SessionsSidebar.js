@@ -11,7 +11,7 @@ const SessionsSidebar = () => {
         <div className="sessions-sidebar">
             <Avatar className = "avatar" src = { user?.photoURL } />
             <div className = "sessions-sidebar-icons">
-                <SessionSidebarOptions className = "sessions-sidebar-icon" Icon = { Add } title = "Add Channel" addOption />
+                <SessionSidebarOptions className = "sessions-sidebar-icon" Icon = { Add } title = "Add Channel" />
             </div>
         </div>
      );
