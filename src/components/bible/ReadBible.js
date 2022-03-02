@@ -74,6 +74,7 @@ const ReadBilbe = () => {
                                 <Select
                                     labelId = "demo-simple-select-required-label"
                                     id = "demo-simple-select-required"
+                                    className = "form"
                                     value = { book }
                                     label = "Books *"
                                     onChange = {(e) => holdBook(e)}
@@ -88,7 +89,7 @@ const ReadBilbe = () => {
                                 </Select>
                         </FormControl>
 
-                        <FormControl required sx = {{ m: 1, minWidth: 120 }}>
+                        <FormControl required sx = {{ m: 1, minWidth: 120 }} className = "form">
                             <InputLabel id="demo-simple-select-required-label">Chapter</InputLabel>
                                 <Select
                                     labelId = "demo-simple-select-required-label"
@@ -110,7 +111,7 @@ const ReadBilbe = () => {
                     </div>
                     
                     <div>
-                        <Button onClick = { proceed }>Proceed</Button>
+                        <Button className = "proceed" onClick = { proceed }>Read</Button>
                     </div>
                 </div>
             </div>

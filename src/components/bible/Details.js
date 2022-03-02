@@ -1,6 +1,8 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import { decrementChapter, incrementChapter, selectBook, selectChapter, selectChapterLength } from "../../features/bibleSlice";
 
 const Details = () => {
@@ -58,8 +60,12 @@ const Details = () => {
                             <h6>King James Version(KJV)</h6>
 
                             <div className = "btns">
-                                <Button disabled = { (theChapter) === 1 ? true : false } onClick = { decrement }>Previous</Button>
-                                <Button disabled = { (theChapter) === theChapterLength ? true : false } onClick = { increment }>Next</Button>
+                                <Button className = "thebutton" disabled = { (theChapter) === 1 ? true : false } onClick = { decrement }>
+                                    <NavigateBeforeIcon />
+                                </Button>
+                                <Button className = "thebutton" disabled = { (theChapter) === theChapterLength ? true : false } onClick = { increment }>
+                                    <NavigateNextIcon />
+                                </Button>
                             </div>
                         </div>
                         : ""

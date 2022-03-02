@@ -57,7 +57,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   padding: 5px;
 }
 
@@ -413,7 +413,7 @@ html .chat {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   padding: 5px;
   border-bottom: 0.1px solid #eee;
   display: flex;
@@ -441,12 +441,17 @@ html .chat {
 
 .read-bible {
   margin-top: 15px;
-  /* max-width: 1024px; */
 }
 
 .read-bible .select-book {
   display: flex;
   justify-content: space-around;
+}
+
+.read-bible .select-book .proceed {
+  margin-top: 18px;
+  color: #777777;
+  background-color: whitesmoke;
 }
 
 .read-bible .select-book details {
@@ -459,8 +464,14 @@ html .chat {
   margin: 20px auto;
 }
 
+.detail h3 {
+  font-weight: 700;
+}
+
 .detail .text {
+  margin-top: 50px;
   margin-bottom: 200px;
+  line-height: 35px;
 }
 
 .detail .text .bottom h6 {
@@ -472,6 +483,16 @@ html .chat {
   display: flex;
   justify-content: space-between;
 }
+
+.detail .text .bottom .btns .thebutton {
+  background-color: whitesmoke;
+}
+
+.detail .text .bottom .btns .thebutton .MuiSvgIcon-root{
+  font-size: 36px;
+}
+
+
 
 
 
@@ -538,6 +559,7 @@ html .chat {
     background-color: #c89d7c;
     padding: 4px;
     display: flex;
+    z-index: 999;
     justify-content: space-around;
   }
 
@@ -614,11 +636,14 @@ html .chat {
     font-size: 12px;
   }
 
-  .read-bible .select-book input {
-    padding: 10px;
-    width: 120px;
-    font-size: 12px;
+  .detail .text {
+    padding: 20px;
+    line-height: 35px;
   }  
+
+  .detail .text .bottom .btns {
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -667,6 +692,15 @@ html .chat {
   .chat-input > form > .form-button {
     bottom: 13px;
     left: 89%;
+  }
+
+  .detail .text {
+    padding: 30px;
+    line-height: 35px;
+  }  
+
+  .detail .text .bottom .btns {
+    margin-top: 30px;
   }
 }
 

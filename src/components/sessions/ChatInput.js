@@ -22,6 +22,7 @@ const ChatInput = ({ channelName, channelId }) => {
             userImage: user.photoURL
         });
         setInput("");
+        window.scrollTo(100, 100);
     };
 
     return ( 
