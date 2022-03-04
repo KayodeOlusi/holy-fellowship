@@ -542,10 +542,11 @@ html .chat {
 
 .detail h3 {
   font-weight: 700;
+  margin-top: 80px;
 }
 
 .detail .text {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 20px;
   line-height: 35px;
   height: 500px;
@@ -771,6 +772,7 @@ html .chat {
   .detail .text {
     padding: 20px;
     line-height: 35px;
+    margin-top: 0px;
   }  
 
   .detail .bottom .btns {

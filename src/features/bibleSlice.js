@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   book: null,
   chapter: null,
-  chapterLength: null
+  chapterLength: null,
+  loading: false 
 };
 
 export const bibleSlice = createSlice({
@@ -26,11 +27,15 @@ export const bibleSlice = createSlice({
     decrementChapter: (state) => {
       state.chapter -= 1;
     }, 
+    isLoading: (state, action) => {
+      state.loading = action.payload.loading
+    }
   }
 });
 
-export const { keepBook, keepChapter, holdChapterLength, incrementChapter, decrementChapter } = bibleSlice.actions;
+export const { keepBook, keepChapter, holdChapterLength, incrementChapter, decrementChapter, isLoading } = bibleSlice.actions;
 export const selectBook = (state) => state.bible.book;
 export const selectChapter = (state) => state.bible.chapter;
 export const selectChapterLength = (state) => state.bible.chapterLength;
+export const selectLoading = (state) => state.bible.loading;
 export default bibleSlice.reducer;

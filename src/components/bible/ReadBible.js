@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
-import { holdChapterLength, keepBook, keepChapter } from "../../features/bibleSlice";
+import { holdChapterLength, isLoading, keepBook, keepChapter } from "../../features/bibleSlice";
 
 const ReadBilbe = () => {
     const dispatch = useDispatch();
@@ -41,6 +41,7 @@ const ReadBilbe = () => {
 
     const proceed = () => {
         dispatch(keepBook({ book }));
+        dispatch(isLoading({ loading: true }));
         dispatch(keepChapter({ chapter: bookChapter }));
         dispatch(holdChapterLength({ chapterLength }));  
     }
@@ -106,7 +107,6 @@ const ReadBilbe = () => {
                                             )
                                         })
                                     }
-                                    {/** Work on chapters next */}
                                 </Select>
                         </FormControl> 
                     </div>

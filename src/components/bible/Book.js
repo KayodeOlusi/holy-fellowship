@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const Book = () => {
     const [books, setBooks] = useState([]);
-    // const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         fetch("https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books", {
@@ -14,16 +13,13 @@ const Book = () => {
         })
         .then((res) => {
             return res.json();
-            // setIsLoading(true);
         })
         .then(data => {
-            // setIsLoading(false);
             setBooks(data.data);
             console.log(books)
         })
         .catch(e => console.log(e))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [books])
 
     return ( 
         <div className="book">
@@ -38,7 +34,6 @@ const Book = () => {
                         </div>
                     ))
                 }
-                {/**Fix the overscroll */}
             </div>
         </div>
      );

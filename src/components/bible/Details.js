@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import { decrementChapter, incrementChapter, selectBook, selectChapter, selectChapterLength } from "../../features/bibleSlice";
+import { decrementChapter, incrementChapter, isLoading, selectBook, selectChapter, selectChapterLength, selectLoading } from "../../features/bibleSlice";
 
 const Details = () => {
     const dispatch = useDispatch();
@@ -12,16 +12,15 @@ const Details = () => {
     const theChapterLength = useSelector(selectChapterLength)
     const [result, setResult] = useState(null);
     const [edit, setEdit] = useState(null);
+    const loading = useSelector(selectLoading);
 
     const increment = () => {
         dispatch(incrementChapter({ theChapter }));
-        console.log(theChapter)
         window.scrollTo(0, 0);
     }
 
     const decrement = () => {
         dispatch(decrementChapter({ theChapter }));
-        console.log(theChapter)
         window.scrollTo(0, 0);
     }
 
@@ -37,10 +36,12 @@ const Details = () => {
             return res.json();
         })
         .then(result => {
+            dispatch(isLoading({ loading: false }));
             setResult(result.data);
             setEdit(result?.data.content.split("."));
         })
         .catch(e => console.log(e)); 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[theBook, theChapter])
 
     return ( 
@@ -48,7 +49,20 @@ const Details = () => {
             <h3>{ result?.reference }</h3>
             <div className = "text">
                 { 
-                    edit?.map((edited, index) => (
+                loading ?
+                    <div>
+                        <Skeleton />
+                        <Skeleton animation = "wave" />
+                        <Skeleton animation = { false } />
+                        <Skeleton />
+                        <Skeleton animation = "wave" />
+                        <Skeleton animation = { false } />
+                        <Skeleton />
+                        <Skeleton animation = "wave" />
+                        <Skeleton animation ={ false } />
+                    </div>
+
+                    : edit?.map((edited, index) => (
                         <p key = { index }>
                             { edited }
                         </p>

@@ -6,7 +6,7 @@ import SessionSidebarOptions from "./SessionSidebarOptions";
 
 const SessionsSidebar = () => {
     const [user] = useAuthState(auth);
-    
+
     return ( 
         <div className="sessions-sidebar">
             <Avatar className = "avatar" src = { user?.photoURL } />
