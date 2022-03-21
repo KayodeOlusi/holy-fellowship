@@ -26,14 +26,14 @@ function App() {
         {
           !user ? ( <Login /> )
           : (
-			        <div>
-				        <Routes>
-					        <Route path = "/" element = { <Home /> } />
-          			  <Route path = "/sessions" element = { <Sessions /> } />
-                  <Route path= "/chat" element = { <Chat /> } />
-                  <Route path = "/bible" element = { <Bible /> } />
-        	      </Routes>
-			        </div>
+			<div>
+				<Routes>
+					<Route path = "/" element = { <Home /> } />
+          			        <Route path = "/sessions" element = { <Sessions /> } />
+                                        <Route path= "/chat" element = { <Chat /> } />
+                                        <Route path = "/bible" element = { <Bible /> } />
+        	               </Routes>
+			 </div>
             )
         }
     </div>
