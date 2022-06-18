@@ -31,20 +31,20 @@ const Chat = () => {
                     <ArrowCircleLeft onClick = { goSessions } />
                 </div>
                 <div className="chat-messages">
-                        {
-                            channelMessages?.docs.map(doc => {
-                                const { message, user, userImage, timestamp } = doc.data();
-                                    return(
-                                            <Message
-                                                key = { doc.id }
-                                                message = { message }
-                                                user = { user }
-                                                userImage = { userImage }
-                                                timestamp = { timestamp }
-                                            />
-                                    )
-                            })
-                        }    
+                    {
+                        channelMessages?.docs.map(doc => {
+                            const { message, user, userImage, timestamp } = doc.data();
+                                return(
+                                <Message
+                                    key = { doc.id }
+                                    message = { message }
+                                    user = { user }
+                                    userImage = { userImage }
+                                    timestamp = { timestamp }
+                                />
+                            )
+                        })
+                    }    
                 </div>
                 <div className="chatting-ref">
 
