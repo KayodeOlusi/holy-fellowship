@@ -12,7 +12,6 @@ import Spinner from "react-spinkit";
 
 function App() {
   const [user, loading] = useAuthState(auth);
-
   if (loading) {
     return (
       <div className="spinner">
