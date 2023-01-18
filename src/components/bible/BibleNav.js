@@ -1,10 +1,11 @@
-import { Avatar, Button, MenuItem, Menu } from "@mui/material";
 import { useEffect, useState } from "react";
 import BottomNav from "../home/BottomNav";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import { signOut } from "@firebase/auth";
+import { Avatar, Button, MenuItem, Menu } from "@mui/material";
+
 
 const BibleNav = () => {
   const [show, setShow] = useState(false);
